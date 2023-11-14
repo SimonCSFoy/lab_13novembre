@@ -11,6 +11,32 @@ Index 3 : 9
 Index 4 : 0
 ```
 
+<details>
+  <summary><bold>Voir la solution</bold></summary>
+  
+  ```cs
+namespace Exercice1
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            int[] entiers = { 2, 4, 8, 9, 0 };
+            AfficherTableauEntiers(entiers);
+        }
+
+        static void AfficherTableauEntiers(int[] p_tableau)
+        {
+            for (int i = 0; i < p_tableau.Length; i++)
+            {
+                Console.WriteLine($"Index {i} : {p_tableau[i]}");
+            }
+        }
+    }
+}
+  ```
+</details>
+
 ## Exercice 2 - Comparaison de tableaux
 ### Exercice 2.1
 Produisez un programme qui compare deux tableaux d'entiers de __même dimension__ afin de déterminer s'ils sont égaux. Votre programme devrait faire l'utilisation d'au __minimum une fonction__.
