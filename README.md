@@ -95,3 +95,90 @@ Index 3 : 4
 
 Les deux tableaux ne sont pas égaux.
 ```
+
+<details>
+  <summary><bold>Voir la solution</bold></summary>
+  
+  ```cs
+  namespace Exercice3
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            const int NUMERO_TABLEAU_1 = 1;
+            const int NUMERO_TABLEAU_2 = 2;
+
+            int[] tableau1 = CreerTableau(NUMERO_TABLEAU_1);
+            int[] tableau2 = CreerTableau(NUMERO_TABLEAU_2);
+
+            AfficherTableauEntiers(tableau1, NUMERO_TABLEAU_1);
+            AfficherTableauEntiers(tableau2, NUMERO_TABLEAU_2);
+
+            AfficherResultat(SontTableauxEntiersEgaux(tableau1, tableau2));
+        }
+
+        static void AfficherResultat(bool p_resultat)
+        {
+            if (p_resultat)
+            {
+                Console.WriteLine("Les deux tableaux sont égaux.");
+            }
+            else
+            {
+                Console.WriteLine("Les deux tableaux ne sont pas égaux.");
+            }
+        }
+
+        static int[] CreerTableau(int p_numeroTableau)
+        {
+            Console.Write($"Entrez la taille du tableau {p_numeroTableau} : ");
+
+            int tailleTableau1 = int.Parse(Console.ReadLine());
+            int[] tableau = new int[tailleTableau1];
+
+            for (int i = 0; i < tableau.Length; i++)
+            {
+                Console.Write($"Entrez l'élément à mettre à l'index {i} du tableau {p_numeroTableau} : ");
+                tableau[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("");
+
+            return tableau;
+        }
+
+        static void AfficherTableauEntiers(int[] p_tableau, int p_numeroTableau)
+        {
+            Console.WriteLine($"## Tableau {p_numeroTableau} ##");
+            for (int i = 0; i < p_tableau.Length; i++)
+            {
+                Console.WriteLine($"Index {i} : {p_tableau[i]}");
+            }
+            Console.WriteLine("");
+        }
+
+        static bool SontTableauxEntiersEgaux(int[] p_tableau1, int[] p_tableau2)
+        {
+            bool sontTableauxEgaux = true;
+
+            if (p_tableau1.Length != p_tableau2.Length)
+            {
+                sontTableauxEgaux = false;
+            }
+            else
+            {
+                for (int i = 0; i < p_tableau1.Length && sontTableauxEgaux; i++)
+                {
+                    if (p_tableau1[i] != p_tableau2[i])
+                    {
+                        sontTableauxEgaux = false;
+                    }
+                }
+            }
+
+            return sontTableauxEgaux;
+        }
+    }
+}
+  ```
+</details>
