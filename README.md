@@ -29,6 +29,55 @@ Voici à quoi devrait ressembler la sortie du programme pour les tableaux `int[]
 Les deux tableaux ne sont pas égaux.
 ```
 
+<details>
+  <summary><bold>Voir la solution</bold></summary>
+  
+  ```cs
+namespace Exercice2
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            int[] tableau1 = { 1, 2, 3, 4, 5 };
+            int[] tableau2 = { 1, 2, 3, 4, 5 };
+
+            if (SontTableauxEgaux(tableau1, tableau2))
+            {
+                Console.WriteLine("Les deux tableaux sont égaux.");
+            }
+            else
+            {
+                Console.WriteLine("Les deux tableaux ne sont pas égaux.");
+            }
+        }
+
+        static bool SontTableauxEgaux(int[] p_tableau1, int[] p_tableau2)
+        {
+            bool sontTableauxEgaux = true;
+
+            if (p_tableau1.Length != p_tableau2.Length)
+            {
+                sontTableauxEgaux = false;
+            }
+            else
+            {
+                for (int i = 0; i < p_tableau1.Length && sontTableauxEgaux; i++)
+                {
+                    if (p_tableau1[i] != p_tableau2[i])
+                    {
+                        sontTableauxEgaux = false;
+                    }
+                }
+            }
+
+            return sontTableauxEgaux;
+        }
+    }
+}
+  ```
+</details>
+
 ## Exercice 3 - Création, affichage et comparaison
 Ce programme permettra à l'utilisateur de __comparer deux tableaux de son choix__. Le contenu de chaque tableau doit être affiché ainsi que le résultat de leur comparaison. 
 Vous pouvez __assumer que l'utilisateur entre toujours des données valides__ (Par exemple, si le programme demande d'entrer un entier, il n'entrera pas de lettres). N'oubliez pas de séparer votre programme en fonctions! Évidemment, pensez à réutiliser les fonctions programmées aux numéros précédents.
