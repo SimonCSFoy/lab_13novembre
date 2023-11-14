@@ -22,6 +22,48 @@ Voici à quoi devrait ressembler la sortie du programme pour les tableaux `int[]
 ```console
 Les deux tableaux ne sont pas égaux.
 ```
+<details>
+  <summary><bold>Voir la solution</bold></summary>
+  
+  ```cs
+  namespace Exercice2
+  {
+      internal class Program
+      {
+          static void Main()
+          {
+              int[] tableau1 = { 1, 2, 3, 4, 5 };
+              int[] tableau2 = { 1, 2, 3, 4, 5 };
+  
+              if (SontTableauxEgaux(tableau1, tableau2))
+              {
+                  Console.WriteLine("Les deux tableaux sont égaux.");
+              }
+              else
+              {
+                  Console.WriteLine("Les deux tableaux ne sont pas égaux.");
+              }
+          }
+  
+          static bool SontTableauxEgaux(int[] p_tableau1, int[] p_tableau2)
+          {
+              bool sontTableauxEgaux = true;
+  
+              for (int i = 0; i < p_tableau1.Length && sontTableauxEgaux; i++)
+              {
+                  if (p_tableau1[i] != p_tableau2[i])
+                  {
+                      sontTableauxEgaux = false;
+                  }
+              }
+  
+              return sontTableauxEgaux;
+          }
+      }
+  }
+  ```
+</details>
+
 ### Exercice 2.2
 Améliorez le programme du numéro 2.1 afin qu'il puisse __comparer deux tableaux d'entiers de tailles différentes__. Lorsque les deux tableaux sont de tailles différentes ils ne sont automatiquement pas égaux!
 Voici à quoi devrait ressembler la sortie du programme pour les tableaux `int[] tableau1 = {1, 2, 3, 4}` et `int[] tableau2 = {1, 2, 3, 4, 5}` :
